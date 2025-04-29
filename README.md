@@ -114,7 +114,7 @@ The skymask given could be used to determine whether the LOS signal from a satel
 The code is modified in (GPS_L1_CA/Skymask.m) and (GPS_L1_CA/leastSquarePos.m)
 
 	Weighting Scheme:
-	•	LOS satellites: weight = sin(elevation)
+	•	LOS satellites: weight = (sin(elevation))²
 	•	Blocked satellites: weight = 0.5 * (sin(elevation))²
 
 
