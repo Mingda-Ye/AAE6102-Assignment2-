@@ -111,7 +111,12 @@ The skymask given could be used to determine whether the LOS signal from a satel
 
 ![Skymask](image/Satellite_visibility.png)
 
-In the positioning process, the weights for LOS satellites are calculated as sine elevation angle, while that for blocked satellites are decreased by taking half of the squared sine elevation angle. The original least square positioning results are shown below:
+The code is modified in (GPS_L1_CA/Skymask.m) and (GPS_L1_CA/leastSquarePos.m)
+
+	Weighting Scheme:
+	•	LOS satellites: weight = sin(elevation)
+	•	Blocked satellites: weight = 0.5 * (sin(elevation))²
+
 
 ![navresultsori](image/navresults_ori.png)
 
