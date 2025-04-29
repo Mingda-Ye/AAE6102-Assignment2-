@@ -99,7 +99,7 @@ iii. Low compatibility: same as RTK and PPP.
 
 Overall, the pros and cons of these four methods for smartphone navigation could be summarize as the table below:
 
-![Figure1](image/Picture 1.jpg)
+![Open Air Results](image/Picture_1.jpg)
 (Figure source: https://www.swiftnav.com/resource/-are-the-different-gnss-correction-methods)
 
 Urban areas present significant challenges to GNSS positioning due to signal blockage,multipath effects, and poor satellite visibility. In this task, you are provided with a skymask, which indicates the elevation angle representing potential satellite visibility blockage for each corresponding azimuth angle, at the ground truth of the"Urban"environment in Assignment 1.
