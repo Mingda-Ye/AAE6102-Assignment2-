@@ -100,17 +100,24 @@ iii. Low compatibility: same as RTK and PPP.
 Overall, the pros and cons of these four methods for smartphone navigation could be summarize as the table below:
 
 ![Open Air Results](image/Picture_1.jpg)
+
 (Figure source: https://www.swiftnav.com/resource/-are-the-different-gnss-correction-methods)
 
 Urban areas present significant challenges to GNSS positioning due to signal blockage,multipath effects, and poor satellite visibility. In this task, you are provided with a skymask, which indicates the elevation angle representing potential satellite visibility blockage for each corresponding azimuth angle, at the ground truth of the"Urban"environment in Assignment 1.
 
 # Task 2- GNSS in Urban Areas
 
-The skymask given could be used to determine whether the LOS signal from a satellite is blocked. The building boundary skymask and the blocked satellites are shown Figure 2.1:(Satellite visibility.png)
+The skymask given could be used to determine whether the LOS signal from a satellite is blocked. The building boundary skymask and the blocked satellites are shown below:
 
-In the positioning process, the weights for LOS satellites are calculated as sine elevation angle, while that for blocked satellites are decreased by taking half of the squared sine elevation angle. The original least square positioning results are shown in(navresults_ori.png)
+![Skymask](image/Satellite_visibility.png)
 
-The skymask based weighted least square positioning results are shown in Figure 2.3:(navresults.png)
+In the positioning process, the weights for LOS satellites are calculated as sine elevation angle, while that for blocked satellites are decreased by taking half of the squared sine elevation angle. The original least square positioning results are shown below:
+
+![navresultsori](image/navresults_ori.png)
+
+The skymask based weighted least square positioning results are shown below:
+
+![navresults](image/navresults.png)
 
 The comparison of the positioning results are shown as a Table:
 
@@ -119,7 +126,11 @@ The comparison of the positioning results are shown as a Table:
 | LS     | 50.5, 21.9, 69.6   | 60.7, 27.0, 84.1 |
 | WLS    | 42.1, 21.9, 33.4   | 49.6, 27.1, 42.1 |
 
-The comparison of 2D positioning results is plotted in Figure 2.4.(pos_compare.png)The results show that the skymask based weighting improved the positioning result in urban areas.
+The comparison of 2D positioning results is plotted as below:
+![pos_compare](image/pos_compare.png)
+
+
+The results show that the skymask based weighting improved the positioning result in urban areas.
 
 # Task 3- GPS RAIM(Receiver Autonomous Integrity Monitoring)
 
