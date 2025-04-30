@@ -140,8 +140,6 @@ The results show that the skymask based weighting slightly improved the position
 
 # Task 3- GPS RAIM(Receiver Autonomous Integrity Monitoring)
 
-# MATLAB Implementation of RAIM Estimation with Stanford Chart Analysis
-
 ## Key code descriptions
 
 ### 1. `leastSquarePos.m`
