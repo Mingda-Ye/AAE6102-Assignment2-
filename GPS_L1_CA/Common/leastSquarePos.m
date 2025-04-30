@@ -82,9 +82,8 @@ for iter = 1:nmbOfIterations
             % if(blocked_sat_idx)
             %     weight(i)=sin(el(i))^2/2;
             % else
-                % weight(i)=sin(el(i))^2;
+                weight(i)=sin(el(i))^2;
             % end
-            weight(i)=1;
 
         end % if iter == 1 ... ... else 
 
@@ -97,7 +96,6 @@ for iter = 1:nmbOfIterations
                      (-(Rot_X(3) - pos(3))) / norm(Rot_X - pos(1:3), 'fro') ...
                      1 ];
         
-        % weight by hd
         
     end % for i = 1:nmbOfSatellites
 
