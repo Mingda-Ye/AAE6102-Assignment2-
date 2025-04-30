@@ -140,6 +140,12 @@ The results show that the skymask based weighting slightly improved the position
 
 # Task 3- GPS RAIM(Receiver Autonomous Integrity Monitoring)
 
+```  
+Model: ChatGPT-4o & DeepSeek-R1 
+Prompt: Generate a github format description about how my matlab codes realized RAIM algorithm, and interprete the stanford figure generated
+Comment: Both ChatGPT-4o and DeepSeek-R1 are free and powerful tools to answer these questions, it is great to refer to answers from them.
+```  
+
 ## Key code descriptions
 
 ### 1. `leastSquarePos.m`
