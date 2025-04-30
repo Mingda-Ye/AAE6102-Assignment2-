@@ -169,14 +169,31 @@ The integrity monitoring component that:
 - Incorporates missed detection probability (Pmd = 1e-7)
 - Accounts for satellite geometry and measurement quality
 
+### Fault Detection
+```matlab
+Thres = sqrt(chi2inv(1-P_fa, sum(isolation_mat)-4));
+WSSE_sqrt = sqrt(y'*W*(I-P)*y);
+fault_confirmed = (WSSE_sqrt>Thres);
+```
+- Chi-square test on measurement residuals
+- Adaptive threshold based on degrees of freedom
+- Configurable false alarm probability
+
+### Protection Level
+```matlab
+Pslope(i) = sqrt(sum((K(1:3,i)).^2)) * sqrt(1/W(i,i)) / sqrt(1-P(i,i));
+PL = max(Pslope) * Detect_results.Thres + norminv(1-P_md/2) * URA;
+```
+- Projection slope method accounts for worst-case satellite
+- Incorporates both statistical bounds and URA (User Range Accuracy)
+- Provides mathematically rigorous protection bounds
+
+
 ## Stanford Chart Interpretation
 
-The provided Stanford chart visually validates the RAIM implementation's performance by comparing:
+The Stanford chart visually validates the RAIM implementation's performance by comparing:
 
-1. **Position Error (x-axis)**: The actual positioning error in meters (0-60m range)
-2. **Protection Level (y-axis)**: The computed protection bound in meters (0-60m range)
-
-Key observations from the chart:
+![Stanford_fig](image/Stanford_Fig.png)
 
 1. **Ideal Relationship (Diagonal Line)**:
    - Represents perfect correlation between error and protection level
@@ -197,37 +214,9 @@ Key observations from the chart:
    - The spread suggests potential for optimizing protection level calculations
    - The implementation meets basic integrity requirements for GNSS positioning
 
-## Technical Implementation Details
-
-### Weighting Strategy
-```matlab
-weight(i) = sin(el(i))^2;  % Elevation-dependent weighting
-```
-- Higher weights for satellites with better geometry (higher elevation)
-- Naturally de-emphasizes prone-to-error low-elevation satellites
-
-### Fault Detection
-```matlab
-Thres = sqrt(chi2inv(1-P_fa, sum(isolation_mat)-4));
-WSSE_sqrt = sqrt(y'*W*(I-P)*y);
-fault_confirmed = (WSSE_sqrt>Thres);
-```
-- Chi-square test on measurement residuals
-- Adaptive threshold based on degrees of freedom
-- Configurable false alarm probability
-
-### Protection Level
-```matlab
-Pslope(i) = sqrt(sum((K(1:3,i)).^2)) * sqrt(1/W(i,i)) / sqrt(1-P(i,i));
-PL = max(Pslope) * Detect_results.Thres + norminv(1-P_md/2) * URA;
-```
-- Projection slope method accounts for worst-case satellite
-- Incorporates both statistical bounds and URA (User Range Accuracy)
-- Provides mathematically rigorous protection bounds
 
 The Stanford chart validation confirms this implementation meets integrity monitoring requirements for safety-critical applications.
 
-![Stanford_fig](image/Stanford_Fig.png)
 
 
 # Task 4- LEO Satellites for Navigation
