@@ -1,4 +1,4 @@
-# Assignment 1
+# Assignment 2
 
 ## Matlab code can be found in [GPS_L1_CA](/GPS_L1_CA) folder, plotted images are in [image](/image) folder.
 
