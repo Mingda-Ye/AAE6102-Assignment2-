@@ -116,7 +116,8 @@ The code is modified in (GPS_L1_CA/Skymask.m) and (GPS_L1_CA/leastSquarePos.m)
 	Weighting Scheme:
 	•	LOS satellites: weight = (sin(elevation))²
 	•	Blocked satellites: weight = 0.5 * (sin(elevation))²
-
+ 
+The traditional elevation angle weighted least square positioning results are shown below:
 
 ![navresultsori](image/navresults_ori.png)
 
@@ -128,14 +129,14 @@ The comparison of the positioning results are shown as a Table:
 
 | Method | Mean Error/m (E,N,U) | RMSE/m (E,N,U) |
 |--------|--------------------|--------------|
-| LS     | 50.5, 21.9, 69.6   | 60.7, 27.0, 84.1 |
+| LS     | 41.8, 23.1, 34.2   | 49.8, 28.4, 42.5 |
 | WLS    | 42.1, 21.9, 33.4   | 49.6, 27.1, 42.1 |
 
 The comparison of 2D positioning results is plotted as below:
 ![pos_compare](image/pos_compare.png)
 
 
-The results show that the skymask based weighting improved the positioning result in urban areas.
+The results show that the skymask based weighting slightly improved the positioning result (majorly in N and U direction) in urban areas.
 
 # Task 3- GPS RAIM(Receiver Autonomous Integrity Monitoring)
 
